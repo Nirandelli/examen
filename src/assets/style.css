@@ -1,0 +1,25 @@
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.navbar-toggler {
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+.navIcons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+
+.nav-item-responsive {
+    display: none;
+}
+
+@media (max-width: 575px) {
+    .nav-item-responsive {
+        display: block;
+    }
+}
