@@ -4,8 +4,8 @@
         <div class="navIcons">
         <b-navbar-toggle>
             <template #default="{ expanded }" right>
-            <BootstrapIcon v-if="expanded" size="2x" flip-h />
-            <BootstrapIcon v-else icon="bag" size="2x" flip-h />
+            <BootstrapIcon v-if="expanded" flip-h />
+            <BootstrapIcon v-else icon="bag" flip-h />
             <h4 v-text="0"></h4>
             <h4></h4>
             </template>
@@ -39,8 +39,8 @@ export default defineComponent({
     },
     data() {
     return {
-        visible: true,
-    };
+            visible: true,
+        };
     },
 });
 </script>
