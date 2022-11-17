@@ -10,11 +10,9 @@ import Formulario from '../components/Formulario.vue'
   <main>
     <Button />
     <Header />
-    <Tabla />
+    <Tabla :campos="fields" :elementos="items" />
     <Footer />
-    <b-modal id="modal-1" size="lg" hide-footer  title="Formulario">
-        <Formulario v-show="show" form="form" @onSubmit="onSubmit"/>
-    </b-modal>
+    <Formulario @on-submit="onSubmit" />
   </main>
 </template>
 
@@ -22,34 +20,31 @@ import Formulario from '../components/Formulario.vue'
     export default {
       data() {
             return {
-                arrayFormulario:[],
-                form: {
-                    porte: '',
-                    concepto: '',
-                    entrega: '',
-                    medida: '',
-                    pu: '', 
-                    cantidad: '', 
-                    importe: '',
-                },
-                show: true
+                count: 1,
+                fields: ['No.', 'Parte', 'Concepto', 'Entrega', 'Medida', 'P.U.', 'Cantidad', 'Importe'],
+                items: [
+                    { 
+                        'No.': 1, 
+                        Parte: 'BAPM2X6GAMID', 
+                        Concepto: 'BANDA DE AMARRE DE POLIESTER CON MATRACA DE 2" X6 M GANCHO CERRADO/ALAMBRE CAPACIDAD 3.5 MATRACA', 
+                        Entrega: '1 días hab.', 
+                        Medida: 'PZ', 
+                        'P.U.': '$360.00',
+                        Cantidad: '4',
+                        Importe: '$1,440.00',
+                    },
+                    { 'P.U.': 'Subtotal(MXN)', Importe: '$1,440.00'},
+                    { 'P.U.': 'Iva(16%)', Importe: '$230.40' },
+                    { 'P.U.': 'Total(MXN)', Importe: '$1,670.40' },
+                ]
             }
         },
         methods: {
-          showModal() {
-                this.$refs['my-modal'].show()
-          },
-          hideModal() {
-              this.$refs['my-modal'].hide()
-          },
-          toggleModal() {
-              // We pass the ID of the button that we want to return focus to
-              // when the modal has hidden
-              this.$refs['my-modal'].toggle('#toggle-btn')
-          },
-          onSubmit(event) {
-              event.preventDefault()
-              alert(JSON.stringify(this.form))
+          onSubmit(form) {
+                this.count += 1
+                let item = {...form}
+                item['No.'] = this.count
+                this.items.unshift(item)
           }
         }
     }
