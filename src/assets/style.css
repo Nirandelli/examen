@@ -1,3 +1,6 @@
+.navbar{
+    margin-bottom: 20px;
+}
 .navbar-collapse {
     flex-grow: 0;
 }
@@ -16,6 +19,48 @@
 
 .nav-item-responsive {
     display: none;
+}
+
+.titleContent{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 30px 0px 30px 0px;
+}
+
+.titleContent .folio{
+    background: #c2bebe;
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px;
+}
+
+.titleContent h4{
+    margin: 0px;
+}
+
+.contentHead{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.contentHead ul{
+    list-style: none;
+    padding: 0px;
+}
+
+.table > thead {
+    background: hsl(0, 57%, 52%);
+    color: #fff;
+}
+
+.contentFooter h5{
+    text-decoration: underline;
+}
+.contentFooter ul{
+    list-style: none;
+    padding: 0px;
 }
 
 @media (max-width: 575px) {
